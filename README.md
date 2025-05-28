@@ -1,29 +1,89 @@
-# Correlation and regression for data analysis
+
+
+#  Mean and variance of a discrete  distribution
+# NAME: 
+# REG NO: 
+
 # Aim : 
 
-To analyse given data using coeffificient of correlation and regression line
-![image](https://user-images.githubusercontent.com/104613195/168224136-d6b64e64-7d3d-4775-9337-c8f96fe41f2d.png)
+To find mean and variance of arrival of objects from the feeder using probability distribution
 
 
 # Software required :  
 
-Python
+Python and Visual components tool
 
 # Theory:
 
-Correlation describes the strength of an association between two variables, and is completely symmetrical, the correlation between A and B is the same as the correlation between B and A. However, if the two variables are related it means that when one changes by a certain amount the other changes on an average by a certain amount.  
+The expectation or the mean of a discrete random variable is a weighted average of all possible
+values of the random variable. The weights are the probabilities associated with the corresponding values. 
+It is calculated as,
 
-If y represents the dependent variable and x the independent variable, this relationship is described as the regression of y on x. The relationship can be represented by a simple equation called the regression equation. The regression equation representing how much y changes with any given change of x can be used to construct a regression line on a scatter diagram, and in the simplest case this is assumed to be a straight line.
+![image](https://user-images.githubusercontent.com/103921593/192938463-e34177f4-f188-48a0-bda2-8f6d1d660ed2.png)
+
+The variance of a random variable shows the variability or the scatterings of the random variables.
+It shows the distance of a random variable from its mean. It is calcualted as
+
+![image](https://user-images.githubusercontent.com/103921593/192938695-99fedc01-34d5-4d36-84df-5880e766ed0c.png)
+
 
 # Procedure :
 
-![image](https://user-images.githubusercontent.com/104613195/168225866-ac8f6610-bdc3-4ac2-a24e-2b24ba08e189.png)
+1. Construct frequency distribution for the data
+
+2. Find the  probability distribution from frequency distribution.
+
+3. Calculate mean using 
+   
+   ![image](https://user-images.githubusercontent.com/103921593/192940431-03b81777-c54d-4286-b4f4-82dfe7666b4c.png)
+
+4. Find  
+   
+      ![image](https://user-images.githubusercontent.com/103921593/192940255-2d9dd746-6875-4a6d-877b-6da6cdb96ab1.png)
+
+5.  Calculate variance using 
+  
+      ![image](https://user-images.githubusercontent.com/103921593/192942852-913550a9-fabe-4a55-b956-0487b18bbd97.png)
+
+
+# Experiment :
+
+![image](https://user-images.githubusercontent.com/103921593/229993174-5b67e57e-3e01-4ac4-9f83-410a932b22bf.png)
 
 # Program :
+```
+NAME: VIJAYAKUMAR S
+REG NO: 212224040359
+```
+```
+# import numpy as np
+L = [int(i) for i in input().split()]
+E = len(L); O = max(L)
+x = list();f=list()
+for i in range (O+1):
+    c = 0
+    for j in range(E):
+        if L[j] == i:
+            c=c+1
+    f.append(c)
+    x.append(i)
+sf = np.sum(f)
+p = list()
+for i in range(O + 1):
+    p.append(f[i]/sf)
+mean = np.inner(x,p)
+EX2 = np.inner(np.square(x),p)
+var = EX2 - mean**2
+SD = np.sqrt(var)
+print("The mean arrival rate is %.3f "%mean)
+print("The Variance of arrival from freeder is %.3f "%var)
+print("The Standard deviation of arrival from freeder is %.3f"%SD)
+```
 
-![image](https://github.com/ramjan1729/Correlation_Regression/assets/103921593/9eb48cbf-8ca3-4cd9-8440-ff45fd98333e)
 
+# Output : 
 
-# Result
+![Screenshot 2025-05-02 140157](https://github.com/user-attachments/assets/f9e7de07-788c-4265-b9c8-fa3c7ef61eb5)
 
-# Output 
+# Results :
+The mean and variance of arrivals of objects from feeder using probability distribution are calculated.
